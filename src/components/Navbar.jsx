@@ -16,6 +16,20 @@ const Navbar = () => {
 		setShowMenu((prev) => !prev);
 	}
 
+	React.useEffect(() => {
+		function handleResize() {
+			if (window.innerWidth > 975) {
+				setShowMenu(false);
+			}
+		}
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
 	return (
 		<header className='bg-stone'>
 			<nav className='xs:px-[24px] md:px-[40px] lg:px-[165px] flex justify-between items-center py-[35px] border-b-[1px] border-white/40 border-solid'>
