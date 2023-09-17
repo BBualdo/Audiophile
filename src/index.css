@@ -30,4 +30,8 @@
 	p {
 		@apply text-[15px] font-[500] leading-[25px];
 	}
+
+	.btn-1 {
+		@apply bg-cream py-[15px] px-[30px] text-[13px] uppercase font-bold tracking-[1px] text-white;
+	}
 }

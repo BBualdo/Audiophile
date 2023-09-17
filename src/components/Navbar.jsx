@@ -31,8 +31,8 @@ const Navbar = () => {
 	}, []);
 
 	return (
-		<header className='bg-stone'>
-			<nav className='xs:px-[24px] md:px-[40px] lg:px-[165px] flex justify-between items-center py-[35px] border-b-[1px] border-white/40 border-solid'>
+		<nav className='xs:px-[24px] md:px-[40px] lg:px-[165px] bg-stone'>
+			<div className='flex justify-between items-center py-[35px]'>
 				<div className='flex items-center xs:justify-between md:justify-normal md:gap-[42px]'>
 					<img
 						onClick={toggleMenu}
@@ -74,7 +74,7 @@ const Navbar = () => {
 				<Link to='/cart'>
 					<img src={cartIcon} />
 				</Link>
-			</nav>
+			</div>
 			{showMenu && (
 				<div className='bg-white pb-[67px] pt-[108px] px-[40px] flex xs:flex-col md:flex-row xs:gap-[68px] md:gap-[10px] justify-between'>
 					<div className='relative bg-gray-light w-full flex flex-col items-center justify-end pb-[22px] h-[165px] rounded-[8px]'>
@@ -86,7 +86,7 @@ const Navbar = () => {
 							<p className='p uppercase font-bold'>Headphones</p>
 							<Link
 								to='/headphones'
-								className='flex items-center gap-[13px] cursor-pointer'
+								className='flex items-center gap-[13px] cursor-pointer hover:text-cream'
 							>
 								<p className='text-[13px] font-bold opacity-50 uppercase'>
 									Shop
@@ -104,7 +104,7 @@ const Navbar = () => {
 							<p className='p uppercase font-bold'>Speakers</p>
 							<Link
 								to='/speakers'
-								className='flex items-center gap-[13px] cursor-pointer'
+								className='flex items-center gap-[13px] cursor-pointer hover:text-cream'
 							>
 								<p className='text-[13px] font-bold opacity-50 uppercase'>
 									Shop
@@ -122,7 +122,7 @@ const Navbar = () => {
 							<p className='p uppercase font-bold'>Earphones</p>
 							<Link
 								to='/earphones'
-								className='flex items-center gap-[13px] cursor-pointer'
+								className='flex items-center gap-[13px] cursor-pointer hover:text-cream'
 							>
 								<p className='text-[13px] font-bold opacity-50 uppercase'>
 									Shop
@@ -133,7 +133,7 @@ const Navbar = () => {
 					</div>
 				</div>
 			)}
-		</header>
+		</nav>
 	);
 };
 

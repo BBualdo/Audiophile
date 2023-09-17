@@ -20,6 +20,11 @@ export default {
 			fontFamily: {
 				sans: 'Manrope',
 			},
+			backgroundImage: {
+				'lg-hero-pattern': "url('./src/assets/home/desktop/image-hero.jpg')",
+				'md-hero-pattern': "url('./src/assets/home/tablet/image-header.jpg')",
+				'xs-hero-pattern': "url('./src/assets/home/mobile/image-header.jpg')",
+			},
 		},
 	},
 	plugins: [],

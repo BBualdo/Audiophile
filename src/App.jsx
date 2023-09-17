@@ -11,7 +11,7 @@ import Layout from './components/Layout';
 
 const App = () => {
 	return (
-		<main>
+		<>
 			<BrowserRouter>
 				<Routes>
 					<Route element={<Layout />}>
@@ -23,7 +23,7 @@ const App = () => {
 					</Route>
 				</Routes>
 			</BrowserRouter>
-		</main>
+		</>
 	);
 };
 
