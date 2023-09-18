@@ -2,6 +2,10 @@ import React from 'react';
 
 import Menu from '../components/Menu';
 
+import desktopZX9 from '../assets/home/desktop/image-speaker-zx9.png';
+import tabletZX9 from '../assets/home/tablet/image-speaker-zx9.png';
+import mobileZX9 from '../assets/home/mobile/image-speaker-zx9.png';
+
 const Home = () => {
 	return (
 		<main>
@@ -24,8 +28,32 @@ const Home = () => {
 					</div>
 				</div>
 			</header>
-			<div className='md:mt-[52px] lg:mt-[92px]'>
+
+			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] md:mt-[52px] lg:mt-[92px]'>
 				<Menu />
+			</div>
+
+			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-[1000px]'>
+				<div className='bg-cream bg-circles bg-no-repeat bg-left bg-contain flex items-center justify-evenly h-[560px]'>
+					<div className='h-full overflow-hidden'>
+						<img src={desktopZX9} className=' translate-y-[15%] w-[410px]' />
+					</div>
+					<div className='w-[350px]'>
+						<h1 className='h1 text-white'>ZX9 Speaker</h1>
+						<p className='p text-white mt-6'>
+							Upgrade to premium speakers that are phenomenally built to deliver
+							truly remarkable sound.
+						</p>
+						<button className='btn-2 border-[1px] border-black hover:bg-white hover:text-black hover:border-[1px] transition-all duration-150 mt-10'>
+							See Product
+						</button>
+					</div>
+				</div>
+				<div></div>
+				<div>
+					<div></div>
+					<div></div>
+				</div>
 			</div>
 		</main>
 	);

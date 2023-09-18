@@ -34,4 +34,8 @@
 	.btn-1 {
 		@apply bg-cream py-[15px] px-[30px] text-[13px] uppercase font-bold tracking-[1px] text-white;
 	}
+
+	.btn-2 {
+		@apply bg-black py-[15px] px-[30px] text-[13px] uppercase font-bold tracking-[1px] text-white;
+	}
 }

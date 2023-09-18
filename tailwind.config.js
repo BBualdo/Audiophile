@@ -24,6 +24,9 @@ export default {
 				'lg-hero-pattern': "url('./src/assets/home/desktop/image-hero.jpg')",
 				'md-hero-pattern': "url('./src/assets/home/tablet/image-header.jpg')",
 				'xs-hero-pattern': "url('./src/assets/home/mobile/image-header.jpg')",
+				circles: "url('./src/assets/home/desktop/pattern-circles.svg')",
+				'lg-speaker-zx9':
+					"url('./src/assets/home/desktop/image-speaker-zx9.png')",
 			},
 		},
 	},

@@ -73,7 +73,11 @@ const Navbar = () => {
 					<img src={cartIcon} />
 				</Link>
 			</div>
-			{showMenu && <Menu />}
+			{showMenu && (
+				<div className='absolute left-0 right-0 z-40'>
+					<Menu />
+				</div>
+			)}
 		</nav>
 	);
 };
