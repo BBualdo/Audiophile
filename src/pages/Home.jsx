@@ -32,13 +32,13 @@ const Home = () => {
 				</div>
 			</header>
 
-			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] md:mt-[52px] lg:mt-[92px]'>
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] md:mt-[52px] lg:mt-[92px]'>
 				<Menu />
-			</div>
+			</section>
 
-			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-[2000px] flex flex-col xs:gap-6 md:gap-8 lg:gap-12'>
-				<div className='bg-cream bg-circles bg-no-repeat xs:bg-bottom lg:bg-top flex xs:flex-col lg:flex-row items-center justify-evenly min-h-[560px] xs:py-14 md:py-16 lg:py-0 lg:min-w-[730px] rounded-[8px]'>
-					<div className='h-full overflow-hidden'>
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-full flex flex-col xs:gap-6 md:gap-8 lg:gap-12'>
+				<div className='bg-cream bg-circles bg-no-repeat xs:bg-bottom lg:bg-top flex xs:flex-col lg:flex-row items-center justify-evenly md:h-[720px] lg:h-[560px] xs:py-14 md:py-16 lg:py-0 lg:min-w-[730px] rounded-[8px]'>
+					<div className='h-full lg:overflow-hidden'>
 						{/* desktop img */}
 						<img
 							src={desktopZX9}
@@ -71,6 +71,7 @@ const Home = () => {
 						</button>
 					</div>
 				</div>
+
 				<div className='relative lg:min-w-[730px]'>
 					{/* desktop img */}
 					<img
@@ -95,14 +96,14 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className='flex xs:flex-col md:flex-row xs:gap-6 md:gap-[11px] lg:gap-[30px] lg:min-w-[730px] xs:min-h-[700px] md:min-h-[360px]'>
+				<div className='flex xs:flex-col md:flex-row xs:gap-6 md:gap-[11px] lg:gap-[30px] w-full xs:h-[424px] md:h-full lg:min-w-[730px]'>
 					{/* desktop img */}
-					<div className='xs:hidden lg:block flex-1 bg-lg-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					<div className='xs:hidden lg:block flex-1 bg-lg-YX1 h-[360px] bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
 					{/* tablet img */}
-					<div className='xs:hidden md:block lg:hidden flex-1 bg-md-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					<div className='xs:hidden md:block lg:hidden flex-1 bg-md-YX1 h-[320px] bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
 					{/* mobile img */}
-					<div className='xs:block md:hidden flex-1 bg-xs-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
-					<div className='flex-1 bg-gray-light rounded-[8px]'>
+					<div className='xs:block md:hidden flex-1 bg-xs-YX1 bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					<div className='flex-1 bg-gray-light xs:h-[400px] md:h-[320px] lg:h-[360px] rounded-[8px]'>
 						<div className='h-full flex flex-col items-start xs:justify-center md:justify-evenly md:py-[100px] xs:px-6 md:px-10 lg:px-20 xs:gap-8 md:gap-4'>
 							<h4 className='h4'>YX1 Earphones</h4>
 							<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
@@ -111,7 +112,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 	);
 };
