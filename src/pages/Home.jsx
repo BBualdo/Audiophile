@@ -5,6 +5,9 @@ import Menu from '../components/Menu';
 import desktopZX9 from '../assets/home/desktop/image-speaker-zx9.png';
 import tabletZX9 from '../assets/home/tablet/image-speaker-zx9.png';
 import mobileZX9 from '../assets/home/mobile/image-speaker-zx9.png';
+import desktopZX7 from '../assets/home/desktop/image-speaker-zx7.jpg';
+import tabletZX7 from '../assets/home/tablet/image-speaker-zx7.jpg';
+import mobileZX7 from '../assets/home/mobile/image-speaker-zx7.jpg';
 
 const Home = () => {
 	return (
@@ -22,7 +25,7 @@ const Home = () => {
 							Experience natural, lifelike audio and exceptional build quality
 							made for the passionate music enthusiast.
 						</p>
-						<button className='btn-1 hover:bg-cream-light transition-all duration-150 mt-10'>
+						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-10'>
 							See Product
 						</button>
 					</div>
@@ -33,26 +36,80 @@ const Home = () => {
 				<Menu />
 			</div>
 
-			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-[1000px]'>
-				<div className='bg-cream bg-circles bg-no-repeat bg-left bg-contain flex items-center justify-evenly h-[560px]'>
+			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-[2000px] flex flex-col xs:gap-6 md:gap-8 lg:gap-12'>
+				<div className='bg-cream bg-circles bg-no-repeat xs:bg-bottom lg:bg-top flex xs:flex-col lg:flex-row items-center justify-evenly min-h-[560px] xs:py-14 md:py-16 lg:py-0 lg:min-w-[730px] rounded-[8px]'>
 					<div className='h-full overflow-hidden'>
-						<img src={desktopZX9} className=' translate-y-[15%] w-[410px]' />
+						{/* desktop img */}
+						<img
+							src={desktopZX9}
+							className='xs:hidden lg:block relative translate-y-[24%] w-[380px]'
+							alt='ZX9 Speaker'
+						/>
+						{/* tablet img */}
+						<img
+							src={tabletZX9}
+							className='xs:hidden md:block lg:hidden h-[237px]'
+							alt='ZX9 Speaker'
+						/>
+						{/* mobile img */}
+						<img
+							src={mobileZX9}
+							className='xs:block md:hidden h-[207px]'
+							alt='ZX9 Speaker'
+						/>
 					</div>
-					<div className='w-[350px]'>
-						<h1 className='h1 text-white'>ZX9 Speaker</h1>
-						<p className='p text-white mt-6'>
+					<div className='w-[350px] flex flex-col xs:items-center lg:items-start xs:px-6 md:px-0'>
+						<h1 className='xs:text-[36px] md:text-[56px] font-bold xs:leading-[40px] md:leading-[58px] xs:tracking-[1.3px] md:tracking-[2px] uppercase xs:mt-8 md:mt-16 lg:mt-0 text-white xs:text-center lg:text-left xs:px-14 md:px-0'>
+							ZX9 Speaker
+						</h1>
+						<p className='p text-white mt-6 xs:text-center lg:text-left'>
 							Upgrade to premium speakers that are phenomenally built to deliver
 							truly remarkable sound.
 						</p>
-						<button className='btn-2 border-[1px] border-black hover:bg-white hover:text-black hover:border-[1px] transition-all duration-150 mt-10'>
+						<button className='btn bg-black border border-black hover:bg-white hover:text-black transition-all duration-150 xs:mt-6 md:mt-10'>
 							See Product
 						</button>
 					</div>
 				</div>
-				<div></div>
-				<div>
-					<div></div>
-					<div></div>
+				<div className='relative lg:min-w-[730px]'>
+					{/* desktop img */}
+					<img
+						src={desktopZX7}
+						className='xs:hidden lg:block w-full rounded-[8px]'
+					/>
+					{/* tablet img */}
+					<img
+						src={tabletZX7}
+						className='xs:hidden md:block lg:hidden w-full rounded-[8px]'
+					/>
+					{/* mobile img */}
+					<img
+						src={mobileZX7}
+						className='xs:block md:hidden w-full rounded-[8px]'
+					/>
+					<div className='absolute top-0 h-full flex flex-col items-start xs:justify-center md:justify-evenly py-[100px] xs:px-6 md:px-12 lg:px-20 xs:gap-8 md:gap-4'>
+						<h4 className='h4'>ZX7 Speaker</h4>
+						<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
+							See Product
+						</button>
+					</div>
+				</div>
+
+				<div className='flex xs:flex-col md:flex-row xs:gap-6 md:gap-[11px] lg:gap-[30px] lg:min-w-[730px] xs:min-h-[700px] md:min-h-[360px]'>
+					{/* desktop img */}
+					<div className='xs:hidden lg:block flex-1 bg-lg-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					{/* tablet img */}
+					<div className='xs:hidden md:block lg:hidden flex-1 bg-md-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					{/* mobile img */}
+					<div className='xs:block md:hidden flex-1 bg-xs-YX1 h-full bg-no-repeat bg-cover bg-center rounded-[8px]'></div>
+					<div className='flex-1 bg-gray-light rounded-[8px]'>
+						<div className='h-full flex flex-col items-start xs:justify-center md:justify-evenly md:py-[100px] xs:px-6 md:px-10 lg:px-20 xs:gap-8 md:gap-4'>
+							<h4 className='h4'>YX1 Earphones</h4>
+							<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
+								See Product
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
