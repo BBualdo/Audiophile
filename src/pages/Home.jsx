@@ -13,7 +13,7 @@ import mobileZX7 from '../assets/home/mobile/image-speaker-zx7.jpg';
 const Home = () => {
 	return (
 		<main>
-			<header className='xs:bg-xs-hero-pattern md:bg-md-hero-pattern mt-[96] lg:bg-lg-hero-pattern bg-no-repeat bg-center bg-cover md:px-[40px] lg:px-[165px] w-full'>
+			<header className='xs:bg-xs-hero-pattern md:bg-md-hero-pattern mt-[95px] lg:bg-lg-hero-pattern bg-no-repeat bg-center bg-cover md:px-[40px] lg:px-[165px] w-full'>
 				<div className='border-t-[1px] border-white/40 border-solid pt-[128px] pb-[158px] flex flex-col justify-center xs:items-center xs:text-center lg:items-start lg:text-left'>
 					<div className='w-[398px] h-[346px]'>
 						<p className='text-white/50 font-normal uppercase tracking-[10px]'>
