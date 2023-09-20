@@ -32,6 +32,6 @@
 	}
 
 	.btn {
-		@apply py-[15px] px-[30px] text-[13px] uppercase font-bold tracking-[1px] text-white;
+		@apply py-[15px] px-[30px] text-[13px] uppercase font-bold tracking-[1px] text-white cursor-pointer;
 	}
 }
