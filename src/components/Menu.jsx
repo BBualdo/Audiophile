@@ -8,7 +8,7 @@ import arrow from '../assets/shared/desktop/icon-arrow-right.svg';
 
 const Menu = () => {
 	return (
-		<div className='bg-white pb-[67px] xs:pt-[64px] md:pt-[108px] flex xs:flex-col md:flex-row xs:gap-[68px] md:gap-[10px] justify-between'>
+		<div className='bg-white pb-[67px] xs:pt-[64px] md:pt-[108px] flex xs:flex-col md:flex-row xs:gap-[68px] md:gap-[10px] justify-between lg:min-w-[730px]'>
 			<div className='relative bg-gray-light w-full flex flex-col items-center justify-end pb-[22px] h-[165px] rounded-[8px]'>
 				<img src={headphonesLogo} className='absolute top-[-60px] w-[160px]' />
 				<div className='flex flex-col items-center justify-between'>

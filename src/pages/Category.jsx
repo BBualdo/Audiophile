@@ -16,7 +16,7 @@ const Category = ({ categories }) => {
 			<div
 				className={`${
 					isEvenIndex ? 'lg:flex-row' : 'lg:flex-row-reverse'
-				} flex xs:flex-col items-center xs:gap-8 md:gap-[52px] lg:gap-[125px]`}
+				} flex xs:flex-col items-center xs:gap-8 md:gap-[52px] lg:gap-[125px] lg:min-w-[730px]`}
 				key={product.id}
 			>
 				<div>
@@ -69,7 +69,9 @@ const Category = ({ categories }) => {
 			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] flex flex-col xs:gap-[120px] lg:gap-[160px] xs:pt-16 xs:pb-[120px] md:py-[120px] lg:py-[160px]'>
 				{elements}
 			</section>
-			<Menu />
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px]'>
+				<Menu />
+			</section>
 			<BestGear />
 		</main>
 	);
