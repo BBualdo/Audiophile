@@ -2,9 +2,22 @@ import React from 'react';
 
 import Menu from '../components/Menu';
 import BestGear from '../components/BestGear';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import MayLike from '../components/MayLike';
 
 const Product = () => {
+	const { slug } = useParams();
+	const [productData, setProductData] = React.useState(null);
+
+	React.useEffect(() => {
+		fetch('/src/data/data.json').then((res) =>
+			res.json().then((data) => {
+				const matchedProduct = data.find((product) => product.slug === slug);
+				setProductData(matchedProduct);
+			}),
+		);
+	}, [slug]);
+
 	return (
 		<main className='mt-[95px]'>
 			<Link relative='path' to='..'>
@@ -12,7 +25,7 @@ const Product = () => {
 					Go back
 				</p>
 			</Link>
-
+			<MayLike />
 			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px]'>
 				<Menu />
 			</section>
