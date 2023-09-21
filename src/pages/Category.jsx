@@ -2,7 +2,7 @@ import React from 'react';
 
 import Menu from '../components/Menu';
 import BestGear from '../components/BestGear';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const Category = ({ categories }) => {
 	const { category } = useParams();
@@ -49,9 +49,11 @@ const Category = ({ categories }) => {
 					<p className='p text-black/50 xs:mt-6 md:mt-8'>
 						{product.description}
 					</p>
-					<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 xs:mt-6 lg:mt-10'>
-						See Product
-					</button>
+					<Link to={product.slug}>
+						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 xs:mt-6 lg:mt-10'>
+							See Product
+						</button>
+					</Link>
 				</div>
 			</div>
 		);
