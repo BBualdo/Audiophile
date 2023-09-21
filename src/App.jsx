@@ -15,7 +15,7 @@ const App = () => {
 	});
 
 	React.useEffect(() => {
-		fetch('../../data.json')
+		fetch('./src/data/data.json')
 			.then((res) => res.json())
 			.then((data) => {
 				const categorizedData = {
