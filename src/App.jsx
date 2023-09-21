@@ -5,7 +5,7 @@ import Category from './pages/Category';
 import Cart from './pages/Cart';
 import Product from './pages/Product';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
 const App = () => {
