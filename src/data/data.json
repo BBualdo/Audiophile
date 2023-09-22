@@ -40,6 +40,11 @@
 				"item": "Travel pouch"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-yx1-earphones.jpg",
+			"name": "YX1",
+			"price": 599
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-yx1-earphones/mobile/image-gallery-1.jpg",
@@ -127,6 +132,11 @@
 				"item": "3.5mm 5m audio cable"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-xx59-headphones.jpg",
+			"name": "XX59",
+			"price": 899
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-xx59-headphones/mobile/image-gallery-1.jpg",
@@ -214,6 +224,11 @@
 				"item": "3.5mm 5m audio cable"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-xx99-mark-one-headphones.jpg",
+			"name": "XX99 Mark I",
+			"price": 1750
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg",
@@ -305,6 +320,11 @@
 				"item": "Travel bag"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-xx99-mark-two-headphones.jpg",
+			"name": "XX99 Mark II",
+			"price": 2999
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg",
@@ -396,6 +416,11 @@
 				"item": "7.5m optical cable"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-zx7-speaker.jpg",
+			"name": "ZX7 Speaker",
+			"price": 3500
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-zx7-speaker/mobile/image-gallery-1.jpg",
@@ -487,6 +512,11 @@
 				"item": "10m optical cable"
 			}
 		],
+		"cart": {
+			"image": "../src/assets/cart/image-zx9-speaker.jpg",
+			"name": "ZX9 Speaker",
+			"price": 4500
+		},
 		"gallery": {
 			"first": {
 				"mobile": "../src/assets/product-zx9-speaker/mobile/image-gallery-1.jpg",

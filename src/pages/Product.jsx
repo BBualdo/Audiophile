@@ -19,6 +19,17 @@ const Product = (props) => {
 		return <h2>Loading...</h2>;
 	}
 
+	const handleAddToCart = () => {
+		const { image, name, price } = productData.cart;
+		const productToAdd = {
+			image,
+			name,
+			price,
+		};
+		props.addToCart(productToAdd);
+		console.log(props.cart);
+	};
+
 	const {
 		includes,
 		name,
@@ -131,7 +142,10 @@ const Product = (props) => {
 								+
 							</div>
 						</div>
-						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 whitespace-nowrap'>
+						<button
+							onClick={handleAddToCart}
+							className='btn bg-cream hover:bg-cream-light transition-all duration-150 whitespace-nowrap'
+						>
 							Add to cart
 						</button>
 					</div>

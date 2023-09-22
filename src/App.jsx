@@ -41,6 +41,12 @@ const App = () => {
 		},
 	};
 
+	const [cartData, setCartData] = React.useState([]);
+
+	const addToCart = (product) => {
+		setCartData([...cartData, product]);
+	};
+
 	const [count, setCount] = React.useState(1);
 
 	const increaseCount = () => {
@@ -78,6 +84,8 @@ const App = () => {
 									count={count}
 									increase={increaseCount}
 									decrease={decreaseCount}
+									addToCart={addToCart}
+									cart={cartData}
 								/>
 							}
 						/>
