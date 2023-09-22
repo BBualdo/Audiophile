@@ -2,7 +2,7 @@ import React from 'react';
 
 import Home from './pages/Home';
 import Category from './pages/Category';
-import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import Product from './pages/Product';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -52,7 +52,7 @@ const App = () => {
 							element={<Category categories={categories} />}
 						/>
 						<Route path=':category/:slug' element={<Product />} />
-						<Route path='/cart' element={<Cart />} />
+						<Route path='/checkout' element={<Checkout />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
