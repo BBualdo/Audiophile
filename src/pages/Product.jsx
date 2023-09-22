@@ -21,7 +21,10 @@ const Product = () => {
 		return <h2>Loading...</h2>;
 	}
 
-	const equipmentArr = productData.includes;
+	const { includes, name, image, description, features, gallery, price } =
+		productData;
+
+	const equipmentArr = includes;
 	const equipment = equipmentArr.map((eq, index) => {
 		return (
 			<div key={index} className='flex gap-6'>
@@ -47,17 +50,17 @@ const Product = () => {
 				<div>
 					{/* desktop image */}
 					<img
-						src={productData.image.desktop}
+						src={image.desktop}
 						className='xs:hidden lg:block min-w-[443px] w-[540px] rounded-[8px]'
 					/>
 					{/* tablet image */}
 					<img
-						src={productData.image.tablet}
+						src={image.tablet}
 						className='xs:hidden md:block lg:hidden rounded-[8px]'
 					/>
 					{/* mobile image */}
 					<img
-						src={productData.image.mobile}
+						src={image.mobile}
 						className='xs:block md:hidden rounded-[8px]'
 					/>
 				</div>
@@ -69,12 +72,10 @@ const Product = () => {
 						</p>
 					)}
 					<h2 className='xs:text-[28px] lg:text-[40px] font-bold xs:leading-normal md:leading-[32px] lg:leading-[44px] xs:tracking-[1px] lg:tracking-[1.4px] uppercase'>
-						{productData.name}
+						{name}
 					</h2>
-					<p className='p text-black/50 xs:py-6 md:py-8'>
-						{productData.description}
-					</p>
-					<h6 className='xs:mb-[31px] lg:mb-[47px]'>$ {productData.price}</h6>
+					<p className='p text-black/50 xs:py-6 md:py-8'>{description}</p>
+					<h6 className='xs:mb-[31px] lg:mb-[47px]'>$ {price}</h6>
 					<div className='flex gap-4'>
 						<div className='flex gap-8 bg-gray-light p-[15px] items-center'>
 							<div className='text-[14px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'>
@@ -102,7 +103,7 @@ const Product = () => {
 					<div
 						className='p text-black/50'
 						dangerouslySetInnerHTML={{
-							__html: productData.features.replace(/\n/g, '<br />'),
+							__html: features.replace(/\n/g, '<br />'),
 						}}
 					></div>
 				</div>
@@ -114,7 +115,61 @@ const Product = () => {
 				</div>
 			</section>
 
-			<section></section>
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] flex xs:flex-col md:flex-row xs:gap-5 md:gap-[18px] lg:gap-8 items-center'>
+				<div className='flex flex-col xs:gap-5 md:gap-[18px] lg:gap-8'>
+					<div>
+						{/* desktop image */}
+						<img
+							src={gallery.first.desktop}
+							className='xs:hidden lg:block rounded-[8px]'
+						/>
+						{/* tablet image */}
+						<img
+							className='xs:hidden md:block lg:hidden rounded-[8px]'
+							src={gallery.first.tablet}
+						/>
+						{/* mobile image */}
+						<img
+							src={gallery.first.mobile}
+							className='xs:block md:hidden rounded-[8px]'
+						/>
+					</div>
+					<div>
+						{/* desktop image */}
+						<img
+							src={gallery.second.desktop}
+							className='xs:hidden lg:block rounded-[8px]'
+						/>
+						{/* tablet image */}
+						<img
+							className='xs:hidden md:block lg:hidden rounded-[8px]'
+							src={gallery.second.tablet}
+						/>
+						{/* mobile image */}
+						<img
+							src={gallery.second.mobile}
+							className='xs:block md:hidden rounded-[8px]'
+						/>
+					</div>
+				</div>
+				<div>
+					{/* desktop image */}
+					<img
+						src={gallery.third.desktop}
+						className='xs:hidden lg:block rounded-[8px]'
+					/>
+					{/* tablet image */}
+					<img
+						src={gallery.third.tablet}
+						className='xs:hidden md:block lg:hidden rounded-[8px]'
+					/>
+					{/* mobile image */}
+					<img
+						src={gallery.third.mobile}
+						className='xs:block md:hidden rounded-[8px]'
+					/>
+				</div>
+			</section>
 
 			{/*<section className='flex flex-col items-center xs:px-[24px] md:px-[40px] lg:px-[165px] min-w-[730px]'>
 				<p className='xs:text-[24px] md:text-[32px] font-bold leading-[36px] xs:tracking-[0.9px] md:tracking-[1.1px] uppercase'>
