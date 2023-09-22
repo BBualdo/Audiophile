@@ -27,7 +27,6 @@ const Product = (props) => {
 			price,
 		};
 		props.addToCart(productToAdd);
-		console.log(props.cart);
 	};
 
 	const {

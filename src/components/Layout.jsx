@@ -8,9 +8,9 @@ const Layout = (props) => {
 	return (
 		<>
 			<Navbar
-				count={props.count}
-				increase={props.increase}
-				decrease={props.decrease}
+				cart={props.cart}
+				clearCart={props.clearCart}
+				totalPrice={props.totalPrice}
 			/>
 			<Outlet />
 			<Footer />

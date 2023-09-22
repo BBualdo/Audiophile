@@ -103,9 +103,9 @@ const Navbar = (props) => {
 				{showCart && (
 					<div className='md:w-[377px] absolute xs:left-6 xs:right-6 md:left-auto md:right-10 lg:right-40 top-[120px] z-30'>
 						<Cart
-							count={props.count}
-							increase={props.increase}
-							decrease={props.decrease}
+							cart={props.cart}
+							clearCart={props.clearCart}
+							totalPrice={props.totalPrice}
 						/>
 					</div>
 				)}

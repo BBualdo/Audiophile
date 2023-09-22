@@ -42,9 +42,16 @@ const App = () => {
 	};
 
 	const [cartData, setCartData] = React.useState([]);
+	const [totalPrice, setTotalPrice] = React.useState(0);
 
 	const addToCart = (product) => {
 		setCartData([...cartData, product]);
+		setTotalPrice((prevPrice) => prevPrice + product.price);
+	};
+
+	const clearCart = () => {
+		setCartData([]);
+		setTotalPrice(0);
 	};
 
 	const [count, setCount] = React.useState(1);
@@ -66,9 +73,9 @@ const App = () => {
 					<Route
 						element={
 							<Layout
-								count={count}
-								increase={increaseCount}
-								decrease={decreaseCount}
+								cart={cartData}
+								clearCart={clearCart}
+								totalPrice={totalPrice}
 							/>
 						}
 					>
@@ -85,7 +92,6 @@ const App = () => {
 									increase={increaseCount}
 									decrease={decreaseCount}
 									addToCart={addToCart}
-									cart={cartData}
 								/>
 							}
 						/>
