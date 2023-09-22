@@ -9,6 +9,7 @@ import mobileZX9 from '../assets/home/mobile/image-speaker-zx9.png';
 import desktopZX7 from '../assets/home/desktop/image-speaker-zx7.jpg';
 import tabletZX7 from '../assets/home/tablet/image-speaker-zx7.jpg';
 import mobileZX7 from '../assets/home/mobile/image-speaker-zx7.jpg';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 	return (
@@ -26,9 +27,11 @@ const Home = () => {
 							Experience natural, lifelike audio and exceptional build quality
 							made for the passionate music enthusiast.
 						</p>
-						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-10'>
-							See Product
-						</button>
+						<Link to='headphones/xx99-mark-two-headphones'>
+							<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-10'>
+								See Product
+							</button>
+						</Link>
 					</div>
 				</div>
 			</header>
@@ -67,9 +70,11 @@ const Home = () => {
 							Upgrade to premium speakers that are phenomenally built to deliver
 							truly remarkable sound.
 						</p>
-						<button className='btn bg-black border border-black hover:bg-white hover:text-black transition-all duration-150 xs:mt-6 md:mt-10'>
-							See Product
-						</button>
+						<Link to='speakers/zx9-speaker'>
+							<button className='btn bg-black border border-black hover:bg-white hover:text-black transition-all duration-150 xs:mt-6 md:mt-10'>
+								See Product
+							</button>
+						</Link>
 					</div>
 				</div>
 
@@ -91,9 +96,11 @@ const Home = () => {
 					/>
 					<div className='absolute top-0 h-full flex flex-col items-start xs:justify-center md:justify-evenly py-[100px] xs:px-6 md:px-12 lg:px-20 xs:gap-8 md:gap-4'>
 						<h4 className='h4'>ZX7 Speaker</h4>
-						<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
-							See Product
-						</button>
+						<Link to='speakers/zx7-speaker'>
+							<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
+								See Product
+							</button>
+						</Link>
 					</div>
 				</div>
 
@@ -107,9 +114,11 @@ const Home = () => {
 					<div className='flex-1 bg-gray-light xs:h-[400px] md:h-[320px] lg:h-[360px] rounded-[8px]'>
 						<div className='h-full flex flex-col items-start xs:justify-center md:justify-evenly md:py-[100px] xs:px-6 md:px-10 lg:px-20 xs:gap-8 md:gap-4'>
 							<h4 className='h4'>YX1 Earphones</h4>
-							<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
-								See Product
-							</button>
+							<Link to='earphones/yx1-earphones'>
+								<button className='btn bg-transparent text-black border-black border hover:bg-black hover:text-white transition-all duration-150'>
+									See Product
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>
