@@ -8,6 +8,8 @@ import Product from './pages/Product';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
+import data from './data/data.json';
+
 const App = () => {
 	const [categoryData, setCategoryData] = React.useState({
 		headphones: [],
@@ -16,16 +18,12 @@ const App = () => {
 	});
 
 	React.useEffect(() => {
-		fetch('/src/data/data.json')
-			.then((res) => res.json())
-			.then((data) => {
-				const categorizedData = {
-					headphones: data.filter((item) => item.category === 'headphones'),
-					speakers: data.filter((item) => item.category === 'speakers'),
-					earphones: data.filter((item) => item.category === 'earphones'),
-				};
-				setCategoryData(categorizedData);
-			});
+		const categorizedData = {
+			headphones: data.filter((item) => item.category === 'headphones'),
+			speakers: data.filter((item) => item.category === 'speakers'),
+			earphones: data.filter((item) => item.category === 'earphones'),
+		};
+		setCategoryData(categorizedData);
 	}, []);
 
 	const categories = {

@@ -4,17 +4,15 @@ import Menu from '../components/Menu';
 import BestGear from '../components/BestGear';
 import { useParams, Link } from 'react-router-dom';
 
+import data from '../data/data.json';
+
 const Product = () => {
 	const { slug } = useParams();
 	const [productData, setProductData] = React.useState(null);
 
 	React.useEffect(() => {
-		fetch('/src/data/data.json').then((res) =>
-			res.json().then((data) => {
-				const matchedProduct = data.find((product) => product.slug === slug);
-				setProductData(matchedProduct);
-			}),
-		);
+		const matchedProduct = data.find((product) => product.slug === slug);
+		setProductData(matchedProduct);
 	}, [slug]);
 
 	if (!productData) {
