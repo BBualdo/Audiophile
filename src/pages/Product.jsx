@@ -4,7 +4,7 @@ import Menu from '../components/Menu';
 import BestGear from '../components/BestGear';
 import { useParams, Link } from 'react-router-dom';
 
-import data from '../data/data.json';
+import data from '../../public/data.json';
 
 const Product = (props) => {
 	const { slug } = useParams();

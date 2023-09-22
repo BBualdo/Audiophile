@@ -8,7 +8,7 @@ import Product from './pages/Product';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
-import data from './data/data.json';
+import data from '../public/data.json';
 
 const App = () => {
 	const [categoryData, setCategoryData] = React.useState({
