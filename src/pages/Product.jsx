@@ -21,8 +21,16 @@ const Product = () => {
 		return <h2>Loading...</h2>;
 	}
 
-	const { includes, name, image, description, features, gallery, price } =
-		productData;
+	const {
+		includes,
+		name,
+		image,
+		description,
+		features,
+		gallery,
+		price,
+		others,
+	} = productData;
 
 	const equipmentArr = includes;
 	const equipment = equipmentArr.map((eq, index) => {
@@ -34,6 +42,35 @@ const Product = () => {
 				<p className='font-[500] text-black/50 text-[15px] leading-[25px]'>
 					{eq.item}
 				</p>
+			</div>
+		);
+	});
+
+	const othersArr = others;
+	const alsoLike = othersArr.map((el, index) => {
+		return (
+			<div key={index}>
+				{/* desktop image */}
+				<img
+					src={el.image.desktop}
+					className='xs:hidden lg:block rounded-[8px]'
+				/>
+				{/* tablet image */}
+				<img
+					src={el.image.tablet}
+					className='xs:hidden md:block lg:hidden rounded-[8px]'
+				/>
+				{/* mobile image */}
+				<img
+					src={el.image.mobile}
+					className='xs:block md:hidden rounded-[8px]'
+				/>
+				<h5>{el.name}</h5>
+				<Link to={`../${el.slug}`}>
+					<button className='btn bg-cream hover:bg-cream-light transition-all duration-150'>
+						See product
+					</button>
+				</Link>
 			</div>
 		);
 	});
@@ -171,34 +208,12 @@ const Product = () => {
 				</div>
 			</section>
 
-			{/*<section className='flex flex-col items-center xs:px-[24px] md:px-[40px] lg:px-[165px] min-w-[730px]'>
+			<section className='flex flex-col items-center xs:px-[24px] md:px-[40px] lg:px-[165px] xs:py-[120px] lg:py-[160px] xs:mb-[52px] lg:mb-[80px] min-w-[730px]'>
 				<p className='xs:text-[24px] md:text-[32px] font-bold leading-[36px] xs:tracking-[0.9px] md:tracking-[1.1px] uppercase'>
 					You may also like
 				</p>
-				<div>
-					<div>
-						<img />
-						<h5></h5>
-						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150'>
-							See product
-						</button>
-					</div>
-					<div>
-						<img />
-						<h5></h5>
-						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150'>
-							See product
-						</button>
-					</div>
-					<div>
-						<img />
-						<h5></h5>
-						<button className='btn bg-cream hover:bg-cream-light transition-all duration-150'>
-							See product
-						</button>
-					</div>
-				</div>
-			</section>*/}
+				<div>{alsoLike}</div>
+			</section>
 
 			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px]'>
 				<Menu />
