@@ -7,7 +7,7 @@ import hamburger from '../assets/shared/tablet/icon-hamburger.svg';
 import Menu from './Menu';
 import Cart from './Cart';
 
-const Navbar = () => {
+const Navbar = (props) => {
 	const [showMenu, setShowMenu] = React.useState(false);
 	const [showCart, setShowCart] = React.useState(false);
 
@@ -102,7 +102,11 @@ const Navbar = () => {
 				)}
 				{showCart && (
 					<div className='md:w-[377px] absolute xs:left-6 xs:right-6 md:left-auto md:right-10 lg:right-40 top-[120px] z-30'>
-						<Cart />
+						<Cart
+							count={props.count}
+							increase={props.increase}
+							decrease={props.decrease}
+						/>
 					</div>
 				)}
 			</nav>

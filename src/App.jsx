@@ -41,17 +41,46 @@ const App = () => {
 		},
 	};
 
+	const [count, setCount] = React.useState(1);
+
+	const increaseCount = () => {
+		setCount((prevCount) => prevCount + 1);
+	};
+
+	const decreaseCount = () => {
+		setCount((prevCount) => {
+			return prevCount - 1 < 1 ? prevCount : prevCount - 1;
+		});
+	};
+
 	return (
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route element={<Layout />}>
+					<Route
+						element={
+							<Layout
+								count={count}
+								increase={increaseCount}
+								decrease={decreaseCount}
+							/>
+						}
+					>
 						<Route path='/' element={<Home />} />
 						<Route
 							path=':category'
 							element={<Category categories={categories} />}
 						/>
-						<Route path=':category/:slug' element={<Product />} />
+						<Route
+							path=':category/:slug'
+							element={
+								<Product
+									count={count}
+									increase={increaseCount}
+									decrease={decreaseCount}
+								/>
+							}
+						/>
 						<Route path='/checkout' element={<Checkout />} />
 					</Route>
 				</Routes>

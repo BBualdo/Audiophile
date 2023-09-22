@@ -6,10 +6,9 @@ import { useParams, Link } from 'react-router-dom';
 
 import data from '../data/data.json';
 
-const Product = () => {
+const Product = (props) => {
 	const { slug } = useParams();
 	const [productData, setProductData] = React.useState(null);
-	const [count, setCount] = React.useState(1);
 
 	React.useEffect(() => {
 		const matchedProduct = data.find((product) => product.slug === slug);
@@ -74,16 +73,6 @@ const Product = () => {
 		);
 	});
 
-	const increaseCount = () => {
-		setCount((prevCount) => prevCount + 1);
-	};
-
-	const decreaseCount = () => {
-		setCount((prevCount) => {
-			return prevCount - 1 < 1 ? prevCount : prevCount - 1;
-		});
-	};
-
 	return (
 		<main className='mt-[95px]'>
 			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] xs:pt-4 md:pt-8 lg:pt-[79px]'>
@@ -127,16 +116,16 @@ const Product = () => {
 					<div className='flex gap-4'>
 						<div className='w-[120px] flex justify-between bg-gray-light p-[15px] items-center'>
 							<div
-								onClick={decreaseCount}
+								onClick={props.decrease}
 								className='text-[14px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 							>
 								-
 							</div>
 							<div className='text-[14px] text-black font-bold tracking-[1px]'>
-								{count}
+								{props.count}
 							</div>
 							<div
-								onClick={increaseCount}
+								onClick={props.increase}
 								className='text-[14px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 							>
 								+

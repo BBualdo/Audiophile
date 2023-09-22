@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import cartIcon from '../assets/cart/image-xx99-mark-two-headphones.jpg';
 
-const Cart = () => {
+const Cart = (props) => {
 	return (
 		<div className='rounded-[8px] p-8 bg-white'>
 			<div className='flex justify-between items-center'>
@@ -28,13 +28,19 @@ const Cart = () => {
 						</div>
 					</div>
 					<div className='w-[96px] h-[32px] flex justify-between bg-gray-light p-[15px] items-center'>
-						<div className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'>
+						<div
+							onClick={props.decrease}
+							className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
+						>
 							-
 						</div>
 						<div className='text-[13px] text-black font-bold tracking-[1px]'>
-							1
+							{props.count}
 						</div>
-						<div className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'>
+						<div
+							onClick={props.increase}
+							className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
+						>
 							+
 						</div>
 					</div>
