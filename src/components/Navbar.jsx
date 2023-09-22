@@ -69,7 +69,10 @@ const Navbar = () => {
 						Earphones
 					</Link>
 				</div>
-				<Link to='/cart'>
+				<Link to='/cart' className='relative'>
+					{/* <div className='absolute top-[-14px] right-[-14px] rounded-full bg-cream flex items-center justify-center w-[25px]'>
+						<p className='text-white font-bold text-[12px]'>1</p>
+					</div> */}
 					<svg
 						width='23'
 						height='20'
