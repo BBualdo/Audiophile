@@ -49,7 +49,7 @@ const Product = () => {
 	const othersArr = others;
 	const alsoLike = othersArr.map((el, index) => {
 		return (
-			<div key={index}>
+			<div key={index} className='flex flex-col items-center'>
 				{/* desktop image */}
 				<img
 					src={el.image.desktop}
@@ -65,9 +65,9 @@ const Product = () => {
 					src={el.image.mobile}
 					className='xs:block md:hidden rounded-[8px]'
 				/>
-				<h5>{el.name}</h5>
-				<Link to={`../${el.slug}`}>
-					<button className='btn bg-cream hover:bg-cream-light transition-all duration-150'>
+				<h5 className='mt-10'>{el.name}</h5>
+				<Link to={`../${el.category}/${el.slug}`}>
+					<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-8'>
 						See product
 					</button>
 				</Link>
@@ -208,11 +208,13 @@ const Product = () => {
 				</div>
 			</section>
 
-			<section className='flex flex-col items-center xs:px-[24px] md:px-[40px] lg:px-[165px] xs:py-[120px] lg:py-[160px] xs:mb-[52px] lg:mb-[80px] min-w-[730px]'>
+			<section className='flex flex-col items-center xs:px-[24px] md:px-[40px] lg:px-[165px] xs:py-[120px] lg:py-[160px]'>
 				<p className='xs:text-[24px] md:text-[32px] font-bold leading-[36px] xs:tracking-[0.9px] md:tracking-[1.1px] uppercase'>
 					You may also like
 				</p>
-				<div>{alsoLike}</div>
+				<div className='flex xs:flex-col md:flex-row items-center xs:gap-14 md:gap-[11px] lg:gap-[30px] xs:mt-10 md:mt-14 lg:mt-16'>
+					{alsoLike}
+				</div>
 			</section>
 
 			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px]'>
