@@ -79,9 +79,13 @@ const Navbar = (props) => {
 						</Link>
 					</div>
 					<div onClick={toggleCart} className='relative cursor-pointer'>
-						{/* <div className='absolute top-[-14px] right-[-14px] rounded-full bg-cream flex items-center justify-center w-[25px]'>
-						<p className='text-white font-bold text-[12px]'>1</p>
-					</div> */}
+						{props.cart.length > 0 && (
+							<div className='absolute top-[-10px] right-[-10px] rounded-full bg-cream flex items-center justify-center h-[20px] w-[20px]'>
+								<p className='text-white font-bold text-[12px]'>
+									{props.cart.length}
+								</p>
+							</div>
+						)}
 						<svg
 							width='23'
 							height='20'
