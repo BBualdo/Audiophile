@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import headphonesLogo from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
-import speakersLogo from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
-import earphonesLogo from '../assets/shared/desktop/image-category-thumbnail-earphones.png';
-import arrow from '../assets/shared/desktop/icon-arrow-right.svg';
+import headphonesLogo from '/assets/shared/desktop/image-category-thumbnail-headphones.png';
+import speakersLogo from '/assets/shared/desktop/image-category-thumbnail-speakers.png';
+import earphonesLogo from '/assets/shared/desktop/image-category-thumbnail-earphones.png';
+import arrow from '/assets/shared/desktop/icon-arrow-right.svg';
 
 const Menu = () => {
 	return (

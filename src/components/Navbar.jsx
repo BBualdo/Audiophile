@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from '../assets/shared/desktop/logo.svg';
-import hamburger from '../assets/shared/tablet/icon-hamburger.svg';
+import logo from '/assets/shared/desktop/logo.svg';
+import hamburger from '/assets/shared/tablet/icon-hamburger.svg';
 
 import Menu from './Menu';
 import Cart from './Cart';

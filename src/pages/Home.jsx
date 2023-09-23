@@ -3,12 +3,12 @@ import React from 'react';
 import Menu from '../components/Menu';
 import BestGear from '../components/BestGear';
 
-import desktopZX9 from '../assets/home/desktop/image-speaker-zx9.png';
-import tabletZX9 from '../assets/home/tablet/image-speaker-zx9.png';
-import mobileZX9 from '../assets/home/mobile/image-speaker-zx9.png';
-import desktopZX7 from '../assets/home/desktop/image-speaker-zx7.jpg';
-import tabletZX7 from '../assets/home/tablet/image-speaker-zx7.jpg';
-import mobileZX7 from '../assets/home/mobile/image-speaker-zx7.jpg';
+import desktopZX9 from '/assets/home/desktop/image-speaker-zx9.png';
+import tabletZX9 from '/assets/home/tablet/image-speaker-zx9.png';
+import mobileZX9 from '/assets/home/mobile/image-speaker-zx9.png';
+import desktopZX7 from '/assets/home/desktop/image-speaker-zx7.jpg';
+import tabletZX7 from '/assets/home/tablet/image-speaker-zx7.jpg';
+import mobileZX7 from '/assets/home/mobile/image-speaker-zx7.jpg';
 import { Link } from 'react-router-dom';
 
 const Home = () => {

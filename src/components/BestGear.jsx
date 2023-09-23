@@ -1,8 +1,8 @@
 import React from 'react';
 
-import desktopBestGear from '../assets/shared/desktop/image-best-gear.jpg';
-import tabletBestGear from '../assets/shared/tablet/image-best-gear.jpg';
-import mobileBestGear from '../assets/shared/mobile/image-best-gear.jpg';
+import desktopBestGear from '/assets/shared/desktop/image-best-gear.jpg';
+import tabletBestGear from '/assets/shared/tablet/image-best-gear.jpg';
+import mobileBestGear from '/assets/shared/mobile/image-best-gear.jpg';
 
 const BestGear = () => {
 	return (
