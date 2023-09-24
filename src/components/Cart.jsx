@@ -20,16 +20,16 @@ const Cart = (props) => {
 				</div>
 				<div className='w-[96px] h-[32px] flex justify-between bg-gray-light p-[15px] items-center'>
 					<div
-						onClick={() => console.log('Decreased quantity')}
+						onClick={item.quantity - 1}
 						className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 					>
 						-
 					</div>
 					<div className='text-[13px] text-black font-bold tracking-[1px]'>
-						1
+						{item.quantity}
 					</div>
 					<div
-						onClick={() => console.log('Increased quantity')}
+						onClick={item.quantity + 1}
 						className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 					>
 						+

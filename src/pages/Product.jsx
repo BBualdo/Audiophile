@@ -132,7 +132,7 @@ const Product = (props) => {
 								-
 							</div>
 							<div className='text-[14px] text-black font-bold tracking-[1px]'>
-								{props.count}
+								{props.quantityToAdd}
 							</div>
 							<div
 								onClick={props.increase}

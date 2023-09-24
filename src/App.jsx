@@ -41,29 +41,46 @@ const App = () => {
 		},
 	};
 
+	const [quantityToAdd, setQuantityToAdd] = React.useState(1);
+
+	const increaseCount = () => {
+		setQuantityToAdd((prev) => prev + 1);
+	};
+
+	const decreaseCount = () => {
+		setQuantityToAdd((prev) => {
+			return prev - 1 < 1 ? prev : prev - 1;
+		});
+	};
+
 	const [cartData, setCartData] = React.useState([]);
 	const [totalPrice, setTotalPrice] = React.useState(0);
 
 	const addToCart = (product) => {
-		setCartData([...cartData, product]);
-		setTotalPrice((prevPrice) => prevPrice + product.price);
+		const existingProductIndex = cartData.findIndex(
+			(item) => item.name === product.name,
+		);
+
+		const newQuantity =
+			existingProductIndex !== -1
+				? cartData[existingProductIndex].quantity + quantityToAdd
+				: quantityToAdd;
+
+		if (existingProductIndex !== -1) {
+			const updatedCartData = [...cartData];
+			updatedCartData[existingProductIndex].quantity = newQuantity;
+			setCartData(updatedCartData);
+		} else {
+			product.quantity = newQuantity;
+			setCartData([...cartData, product]);
+		}
+
+		setTotalPrice((prevPrice) => prevPrice + product.price * quantityToAdd);
 	};
 
 	const clearCart = () => {
 		setCartData([]);
 		setTotalPrice(0);
-	};
-
-	const [count, setCount] = React.useState(1);
-
-	const increaseCount = () => {
-		setCount((prevCount) => prevCount + 1);
-	};
-
-	const decreaseCount = () => {
-		setCount((prevCount) => {
-			return prevCount - 1 < 1 ? prevCount : prevCount - 1;
-		});
 	};
 
 	return (
@@ -88,7 +105,7 @@ const App = () => {
 							path=':category/:slug'
 							element={
 								<Product
-									count={count}
+									quantityToAdd={quantityToAdd}
 									increase={increaseCount}
 									decrease={decreaseCount}
 									addToCart={addToCart}
