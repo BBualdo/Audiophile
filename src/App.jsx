@@ -84,6 +84,12 @@ const App = () => {
 		setTotalPrice((prevPrice) => prevPrice + product.price * quantityToAdd);
 	};
 
+	const removeFromCart = (indexToRemove) => {
+		const updatedCart = cartData.filter((_, index) => index !== indexToRemove);
+		setCartData(updatedCart);
+		setTotalPrice((prevPrice) => prevPrice - cartData[indexToRemove].price);
+	};
+
 	const clearCart = () => {
 		setCartData([]);
 		setTotalPrice(0);
@@ -101,6 +107,7 @@ const App = () => {
 								totalPrice={totalPrice}
 								setTotalPrice={setTotalPrice}
 								updateQuantity={updateQuantity}
+								removeFromCart={removeFromCart}
 							/>
 						}
 					>

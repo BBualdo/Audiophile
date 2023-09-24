@@ -13,6 +13,7 @@ const Layout = (props) => {
 				totalPrice={props.totalPrice}
 				setTotalPrice={props.setTotalPrice}
 				updateQuantity={props.updateQuantity}
+				removeFromCart={props.removeFromCart}
 			/>
 			<Outlet />
 			<Footer />

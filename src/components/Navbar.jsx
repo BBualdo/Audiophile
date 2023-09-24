@@ -112,6 +112,7 @@ const Navbar = (props) => {
 							totalPrice={props.totalPrice}
 							setTotalPrice={props.setTotalPrice}
 							updateQuantity={props.updateQuantity}
+							removeFromCart={props.removeFromCart}
 						/>
 					</div>
 				)}

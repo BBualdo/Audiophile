@@ -12,6 +12,8 @@ const Cart = (props) => {
 			if (item.quantity > 1) {
 				props.updateQuantity(index, item.quantity - 1);
 				props.setTotalPrice((prevPrice) => prevPrice - item.price);
+			} else {
+				props.removeFromCart(index);
 			}
 		};
 
