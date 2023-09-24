@@ -2,16 +2,16 @@
 
 TODO:
 
-2. Add posibility to change amount of added items at once in the Product page and in the cart as well.
-3. Add logic that if you change the quantity in the cart to 0 the item will be removed from it.
-4. Add some popups when adding to cart, removing from cart, etc.
-5. Create checkout design and render the from and informations depending of items in the cart.
-6. Add proper errors to inputs when datas are invalid.
-7. After compliting form properly show the order success message.
-8. Fix some design and responsiveness issues, add something that will take you to the top of the page when changing site.
-9. (Optional) Make some animations, especially for showing menu, cart or order success message.
-10. Prepare documentation, take screenshots, write down the process, etc.
-11. Submit solution and add to CV.
+1. Add posibility to change amount of added items at once in the Product page and in the cart as well.
+2. Add logic that if you change the quantity in the cart to 0 the item will be removed from it.
+3. Add some popups when adding to cart, removing from cart, etc.
+4. Create checkout design and render the from and informations depending of items in the cart.
+5. Add proper errors to inputs when datas are invalid.
+6. After compliting form properly show the order success message.
+7. Fix some design and responsiveness issues, add something that will take you to the top of the page when changing site.
+8. (Optional) Make some animations, especially for showing menu, cart or order success message.
+9. Prepare documentation, take screenshots, write down the process, etc.
+10. Submit solution and add to CV.
 
 ![Design preview for the Audiophile e-commerce website coding challenge](./preview.jpg)
 
