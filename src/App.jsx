@@ -53,6 +53,12 @@ const App = () => {
 		});
 	};
 
+	const updateQuantity = (index, newQuantity) => {
+		const updatedCart = [...cartData];
+		updatedCart[index].quantity = newQuantity;
+		setCartData(updatedCart);
+	};
+
 	const [cartData, setCartData] = React.useState([]);
 	const [totalPrice, setTotalPrice] = React.useState(0);
 
@@ -93,6 +99,8 @@ const App = () => {
 								cart={cartData}
 								clearCart={clearCart}
 								totalPrice={totalPrice}
+								setTotalPrice={setTotalPrice}
+								updateQuantity={updateQuantity}
 							/>
 						}
 					>

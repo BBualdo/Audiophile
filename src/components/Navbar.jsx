@@ -110,6 +110,8 @@ const Navbar = (props) => {
 							cart={props.cart}
 							clearCart={props.clearCart}
 							totalPrice={props.totalPrice}
+							setTotalPrice={props.setTotalPrice}
+							updateQuantity={props.updateQuantity}
 						/>
 					</div>
 				)}

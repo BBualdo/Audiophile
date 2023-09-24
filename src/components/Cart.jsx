@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
 	const cartElements = props.cart.map((item, index) => {
+		const increaseQuantity = () => {
+			props.updateQuantity(index, item.quantity + 1);
+			props.setTotalPrice((prevPrice) => prevPrice + item.price);
+		};
+
+		const decreaseQuantity = () => {
+			if (item.quantity > 1) {
+				props.updateQuantity(index, item.quantity - 1);
+				props.setTotalPrice((prevPrice) => prevPrice - item.price);
+			}
+		};
+
 		return (
 			<div key={index} className='w-full flex items-center justify-between'>
 				<div className='flex items-center gap-4'>
@@ -20,7 +32,7 @@ const Cart = (props) => {
 				</div>
 				<div className='w-[96px] h-[32px] flex justify-between bg-gray-light p-[15px] items-center'>
 					<div
-						onClick={item.quantity - 1}
+						onClick={decreaseQuantity}
 						className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 					>
 						-
@@ -29,7 +41,7 @@ const Cart = (props) => {
 						{item.quantity}
 					</div>
 					<div
-						onClick={item.quantity + 1}
+						onClick={increaseQuantity}
 						className='text-[13px] text-black/30 hover:text-cream font-bold tracking-[1px] cursor-pointer'
 					>
 						+

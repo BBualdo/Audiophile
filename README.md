@@ -2,7 +2,7 @@
 
 TODO:
 
-1. Add posibility to change amount of added items at once in the Product page and in the cart as well.
+1. Add posibility to change quantity in the cart.
 2. Add logic that if you change the quantity in the cart to 0 the item will be removed from it.
 3. Add some popups when adding to cart, removing from cart, etc.
 4. Create checkout design and render the from and informations depending of items in the cart.
