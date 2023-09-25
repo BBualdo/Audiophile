@@ -2,6 +2,101 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Checkout = (props) => {
+	// State variables for form input values and error messages
+	const [formData, setFormData] = React.useState({
+		name: '',
+		email: '',
+		phoneNumber: '',
+		address: '',
+		zipCode: '',
+		city: '',
+		country: '',
+	});
+
+	const [formErrors, setFormErrors] = React.useState({
+		email: '',
+		phoneNumber: '',
+	});
+
+	// Validation functions
+	const validateEmail = (email) => {
+		// Add your email validation logic here
+		// For example, you can use a regular expression
+		return /^\S+@\S+\.\S+$/.test(email);
+	};
+
+	const validatePhoneNumber = (phoneNumber) => {
+		// Add your phone number validation logic here
+		// For example, you can check if it matches a valid phone number format
+		return /^\+\d{1,3} \d{3}-\d{3}-\d{4}$|^\d{9}$/.test(phoneNumber);
+	};
+
+	// Handle input changes
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({ ...formData, [name]: value });
+	};
+
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+
+		// Initialize an object to hold error messages
+		const newFormErrors = {};
+
+		// Check for empty fields and update error messages
+		if (formData.name.trim() === '') {
+			newFormErrors.name = 'Name is required';
+		}
+		if (formData.address.trim() === '') {
+			newFormErrors.address = 'Address is required';
+		}
+		if (formData.zipCode.trim() === '') {
+			newFormErrors.zipCode = 'ZIP Code is required';
+		}
+		if (formData.city.trim() === '') {
+			newFormErrors.city = 'City is required';
+		}
+		if (formData.country.trim() === '') {
+			newFormErrors.country = 'Country is required';
+		}
+
+		if (formData.email.trim() === '') {
+			newFormErrors.email = 'Email is required';
+		} else {
+			// Perform email validation if it's not empty
+			const emailIsValid = validateEmail(formData.email);
+			if (!emailIsValid) {
+				newFormErrors.email = 'Invalid email format';
+			}
+		}
+
+		if (formData.phoneNumber.trim() === '') {
+			newFormErrors.phoneNumber = 'Phone number is required';
+		} else {
+			// Perform phone number validation if it's not empty
+			const phoneNumberIsValid = validatePhoneNumber(formData.phoneNumber);
+			if (!phoneNumberIsValid) {
+				newFormErrors.phoneNumber = 'Invalid phone number format';
+			}
+		}
+
+		// Update the formErrors state with the new error messages
+		setFormErrors(newFormErrors);
+
+		// Check if any error messages exist (i.e., form is invalid)
+		const isFormInvalid = Object.values(newFormErrors).some(
+			(error) => error !== '',
+		);
+
+		if (!isFormInvalid) {
+			// Your logic for handling a successful form submission here
+			console.log('Form submitted successfully');
+		} else {
+			// Validation failed; do not proceed with submission
+			console.log('Form validation failed');
+		}
+	};
+
 	const cartItems = props.cart.map((item, index) => {
 		return (
 			<div key={index} className='w-full flex items-center justify-between'>
@@ -39,7 +134,7 @@ const Checkout = (props) => {
 			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] mt-[38px] pb-[140px] flex xs:flex-col xl:flex-row gap-8 xs:items-center xl:items-start'>
 				<section className='bg-white p-12 rounded-[8px] w-full'>
 					<h3>Checkout</h3>
-					<form>
+					<form onSubmit={handleFormSubmit}>
 						<div className='mt-10'>
 							<p className='text-cream text-[13px] font-bold uppercase leading-[25px] tracking-wide'>
 								Billing Details
@@ -47,32 +142,76 @@ const Checkout = (props) => {
 							<div className='mt-4 flex flex-col gap-6'>
 								<div className='flex xs:flex-col md:flex-row items-center gap-4'>
 									<div className='flex flex-col w-full'>
-										<label className='text-black text-xs font-bold'>Name</label>
+										<div className='flex items-center justify-between'>
+											<label
+												className={`text-xs font-bold ${
+													formErrors.name ? 'text-red-600' : 'text-black'
+												}`}
+											>
+												Name
+											</label>
+											<p className='text-red-600 text-xs font-medium'>
+												{formErrors.name}
+											</p>
+										</div>
 										<input
-											className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+											className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+												formErrors.name ? 'border-red-600' : ''
+											}`}
 											type='text'
+											name='name'
 											placeholder='Alexei Ward'
+											value={formData.name}
+											onChange={handleInputChange}
 										/>
 									</div>
 									<div className='flex flex-col w-full'>
-										<label className='text-black text-xs font-bold'>
-											Email Address
-										</label>
+										<div className='flex items-center justify-between'>
+											<label
+												className={`text-xs font-bold ${
+													formErrors.email ? 'text-red-600' : 'text-black'
+												}`}
+											>
+												Email address
+											</label>
+											<p className='text-red-600 text-xs font-medium'>
+												{formErrors.email}
+											</p>
+										</div>
 										<input
-											className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+											className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+												formErrors.email ? 'border-red-600' : ''
+											}`}
 											type='text'
+											name='email'
 											placeholder='alexei@mail.com'
+											value={formData.email}
+											onChange={handleInputChange}
 										/>
 									</div>
 								</div>
 								<div className='flex flex-col'>
-									<label className='text-black text-xs font-bold'>
-										Phone Number
-									</label>
+									<div className='flex items-center justify-between'>
+										<label
+											className={`text-xs font-bold ${
+												formErrors.phoneNumber ? 'text-red-600' : 'text-black'
+											}`}
+										>
+											Phone number
+										</label>
+										<p className='text-red-600 text-xs font-medium'>
+											{formErrors.phoneNumber}
+										</p>
+									</div>
 									<input
-										className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+										className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+											formErrors.phoneNumber ? 'border-red-600' : ''
+										}`}
 										type='text'
-										placeholder='+1 202-555-0136'
+										name='phoneNumber'
+										placeholder='+1 (202) 555-0136'
+										value={formData.phoneNumber}
+										onChange={handleInputChange}
 									/>
 								</div>
 							</div>
@@ -83,51 +222,116 @@ const Checkout = (props) => {
 							</p>
 							<div className='mt-4 flex flex-col gap-6'>
 								<div className='flex flex-col'>
-									<label className='text-black text-xs font-bold'>
-										Address
-									</label>
+									<div className='flex items-center justify-between'>
+										<label
+											className={`text-xs font-bold ${
+												formErrors.address ? 'text-red-600' : 'text-black'
+											}`}
+										>
+											Address
+										</label>
+										<p className='text-red-600 text-xs font-medium'>
+											{formErrors.address}
+										</p>
+									</div>
 									<input
-										className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+										className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+											formErrors.address ? 'border-red-600' : ''
+										}`}
 										type='text'
+										name='address'
 										placeholder='1137 Williams Avenue'
+										value={formData.address}
+										onChange={handleInputChange}
 									/>
 								</div>
 								<div className='flex xs:flex-col md:flex-row items-center gap-4'>
 									<div className='flex flex-col w-full'>
-										<label className='text-black text-xs font-bold'>
-											ZIP Code
-										</label>
+										<div className='flex items-center justify-between'>
+											<label
+												className={`text-xs font-bold ${
+													formErrors.zipCode ? 'text-red-600' : 'text-black'
+												}`}
+											>
+												ZIP Code
+											</label>
+											<p className='text-red-600 text-xs font-medium'>
+												{formErrors.zipCode}
+											</p>
+										</div>
 										<input
-											className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+											className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+												formErrors.zipCode ? 'border-red-600' : ''
+											}`}
 											type='text'
+											name='zipCode'
 											placeholder='10001'
+											maxLength={5}
+											value={formData.zipCode}
+											onChange={handleInputChange}
 										/>
 									</div>
 									<div className='flex flex-col w-full'>
-										<label className='text-black text-xs font-bold'>City</label>
+										<div className='flex items-center justify-between'>
+											<label
+												className={`text-xs font-bold ${
+													formErrors.city ? 'text-red-600' : 'text-black'
+												}`}
+											>
+												City
+											</label>
+											<p className='text-red-600 text-xs font-medium'>
+												{formErrors.city}
+											</p>
+										</div>
 										<input
-											className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+											className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+												formErrors.city ? 'border-red-600' : ''
+											}`}
 											type='text'
+											name='city'
 											placeholder='New York'
+											value={formData.city}
+											onChange={handleInputChange}
 										/>
 									</div>
 								</div>
 								<div className='flex flex-col'>
-									<label className='text-black text-xs font-bold'>
-										Country
-									</label>
+									<div className='flex items-center justify-between'>
+										<label
+											className={`text-xs font-bold ${
+												formErrors.country ? 'text-red-600' : 'text-black'
+											}`}
+										>
+											Country
+										</label>
+										<p className='text-red-600 text-xs font-medium'>
+											{formErrors.country}
+										</p>
+									</div>
 									<input
-										className='placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px]'
+										className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+											formErrors.country ? 'border-red-600' : ''
+										}`}
 										type='text'
+										name='country'
 										placeholder='United States'
+										value={formData.country}
+										onChange={handleInputChange}
 									/>
 								</div>
 							</div>
 						</div>
 						<div className='mt-[61px]'>
-							<p className='text-cream text-[13px] font-bold uppercase leading-[25px] tracking-wide'>
-								Payment Details
-							</p>
+							<div className='flex items-center justify-between'>
+								<p className='text-cream text-[13px] font-bold uppercase leading-[25px] tracking-wide'>
+									Payment Details
+								</p>
+								<p className='text-red-600 text-xs font-medium'>
+									{formErrors.paymentMethod}
+								</p>
+							</div>
+
 							<div className='flex xs:flex-col xs:gap-[17px] md:gap-0 md:flex-row mt-4 justify-between'>
 								<label className='text-black text-xs font-bold flex-1'>
 									Payment Methods
@@ -200,7 +404,10 @@ const Checkout = (props) => {
 						</div>
 					</div>
 					<div className='mt-8'>
-						<button className='btn w-full bg-cream text-white hover:bg-cream-light transition-all duration-150'>
+						<button
+							onClick={handleFormSubmit}
+							className='btn w-full bg-cream text-white hover:bg-cream-light transition-all duration-150'
+						>
 							Continue & Pay
 						</button>
 					</div>
