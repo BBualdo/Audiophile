@@ -1,7 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Checkout = () => {
+const Checkout = (props) => {
+	const cartItems = props.cart.map((item, index) => {
+		return (
+			<div key={index} className='w-full flex items-center justify-between'>
+				<div className='flex items-center gap-4'>
+					<div>
+						<img src={item.image} className='w-16 h-16 rounded-[8px]' />
+					</div>
+					<div className='flex flex-col'>
+						<p className='text-[15px] font-bold leading-[25px] text-black'>
+							{item.name}
+						</p>
+						<p className='text-[14px] font-bold leading-[25px] text-black/50'>
+							$ {item.price}
+						</p>
+					</div>
+				</div>
+				<div className='flex justify-between p-[15px] items-center'>
+					<p className='text-[15px] font-bold text-black/50'>
+						x{item.quantity}
+					</p>
+				</div>
+			</div>
+		);
+	});
+
 	return (
 		<main className='mt-[95px] bg-gray-light'>
 			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] xs:pt-4 md:pt-8 lg:pt-[79px]'>
@@ -11,7 +36,7 @@ const Checkout = () => {
 					</button>
 				</Link>
 			</div>
-			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] mt-[38px] pb-[140px]'>
+			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] mt-[38px] pb-[140px] flex gap-8 items-start'>
 				<section className='bg-white p-12 rounded-[8px]'>
 					<h3>Checkout</h3>
 					<form>
@@ -133,7 +158,53 @@ const Checkout = () => {
 						</div>
 					</form>
 				</section>
-				<section></section>
+				<section className='rounded-[8px] p-8 bg-white'>
+					<div>
+						<h6 className='h6 text-black'>Summary</h6>
+					</div>
+					<div className='flex flex-col items-center gap-6 py-8 overflow-y-auto max-h-[304px] w-[284px]'>
+						{cartItems}
+					</div>
+
+					<div className='flex flex-col gap-2'>
+						<div className='flex items-center justify-between'>
+							<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
+								Total
+							</p>
+							<h6 className='font-bold leading-[25px] text-black'>
+								$ {props.totalPrice}
+							</h6>
+						</div>
+						{/* If shipping price and VAT would change, I'd prepare a seperate file with them, but for more readable code I will leave them as they are */}
+						<div className='flex items-center justify-between'>
+							<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
+								Shipping
+							</p>
+							<h6 className='font-bold leading-[25px] text-black'>$ 50</h6>
+						</div>
+						<div className='flex items-center justify-between'>
+							<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
+								Vat (Included)
+							</p>
+							<h6 className='font-bold leading-[25px] text-black'>
+								$ {Math.floor(props.totalPrice * 0.2)}
+							</h6>
+						</div>
+						<div className='flex items-center justify-between mt-4'>
+							<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
+								Grand Total
+							</p>
+							<h6 className='font-bold leading-[25px] text-cream'>
+								$ {Math.floor(props.totalPrice + 50 + props.totalPrice * 0.2)}
+							</h6>
+						</div>
+					</div>
+					<div className='mt-8'>
+						<button className='btn w-full bg-cream text-white hover:bg-cream-light transition-all duration-150'>
+							Continue & Pay
+						</button>
+					</div>
+				</section>
 			</div>
 		</main>
 	);
