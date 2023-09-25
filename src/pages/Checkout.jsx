@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CoDLogo from '/assets/checkout/icon-cash-on-delivery.svg';
+
 const Checkout = (props) => {
+	const [selectedPaymentMethod, setSelectedPaymentMethod] =
+		React.useState('e-Money');
+
+	const handlePaymentMethodChange = (event) => {
+		setSelectedPaymentMethod(event.target.value);
+	};
+
 	// State variables for form input values and error messages
 	const [formData, setFormData] = React.useState({
 		name: '',
@@ -11,6 +20,8 @@ const Checkout = (props) => {
 		zipCode: '',
 		city: '',
 		country: '',
+		eMoneyNumber: '',
+		eMoneyPin: '',
 	});
 
 	const [formErrors, setFormErrors] = React.useState({
@@ -77,6 +88,16 @@ const Checkout = (props) => {
 			const phoneNumberIsValid = validatePhoneNumber(formData.phoneNumber);
 			if (!phoneNumberIsValid) {
 				newFormErrors.phoneNumber = 'Invalid phone number format';
+			}
+		}
+
+		// Check for empty e-Money inputs if e-Money is selected
+		if (selectedPaymentMethod === 'e-Money') {
+			if (formData.eMoneyNumber.trim() === '') {
+				newFormErrors.eMoneyNumber = 'Number is required';
+			}
+			if (formData.eMoneyPin.trim() === '') {
+				newFormErrors.eMoneyPin = 'PIN is required';
 			}
 		}
 
@@ -327,9 +348,6 @@ const Checkout = (props) => {
 								<p className='text-cream text-[13px] font-bold uppercase leading-[25px] tracking-wide'>
 									Payment Details
 								</p>
-								<p className='text-red-600 text-xs font-medium'>
-									{formErrors.paymentMethod}
-								</p>
 							</div>
 
 							<div className='flex xs:flex-col xs:gap-[17px] md:gap-0 md:flex-row mt-4 justify-between'>
@@ -342,6 +360,9 @@ const Checkout = (props) => {
 											type='radio'
 											className='cursor-pointer checked:accent-cream checked:border-cream'
 											name='payment'
+											value='e-Money'
+											checked={selectedPaymentMethod === 'e-Money'}
+											onChange={handlePaymentMethodChange}
 										/>
 										<label className='text-black text-xs font-bold'>
 											e-Money
@@ -352,6 +373,9 @@ const Checkout = (props) => {
 											type='radio'
 											className='cursor-pointer checked:accent-cream checked:border-cream'
 											name='payment'
+											value='Cash on Delivery'
+											checked={selectedPaymentMethod === 'Cash on Delivery'}
+											onChange={handlePaymentMethodChange}
 										/>
 										<label className='text-black text-xs font-bold'>
 											Cash on Delivery
@@ -360,6 +384,68 @@ const Checkout = (props) => {
 								</div>
 							</div>
 						</div>
+
+						{selectedPaymentMethod === 'e-Money' && (
+							<div className='flex xs:flex-col md:flex-row items-center gap-4 mt-4'>
+								{/* Render additional inputs for e-Money */}
+								<div className='flex flex-col w-full'>
+									<div className='flex items-center justify-between'>
+										<label
+											className={`text-xs font-bold ${
+												formErrors.eMoneyNumber ? 'text-red-600' : 'text-black'
+											}`}
+										>
+											e-Money Number
+										</label>
+										<p className='text-red-600 text-xs font-medium'>
+											{formErrors.eMoneyNumber}
+										</p>
+									</div>
+									<input
+										type='text'
+										placeholder='238521993'
+										className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+											formErrors.eMoneyNumber ? 'border-red-600' : ''
+										}`}
+										maxLength={9}
+									/>
+								</div>
+								<div className='flex flex-col w-full'>
+									<div className='flex items-center justify-between'>
+										<label
+											className={`text-xs font-bold ${
+												formErrors.eMoneyPin ? 'text-red-600' : 'text-black'
+											}`}
+										>
+											e-Money PIN
+										</label>
+										<p className='text-red-600 text-xs font-medium'>
+											{formErrors.eMoneyPin}
+										</p>
+									</div>
+									<input
+										type='text'
+										placeholder='6891'
+										className={`placeholder:text-[14px] placeholder:text-black/40 placeholder:font-bold placeholder:leading-[-0.25px] text-black font-bold py-[18px] px-[24px] bg-white rounded-lg border border-stone-300 focus:outline-cream caret-cream mt-[9px] ${
+											formErrors.eMoneyPin ? 'border-red-600' : ''
+										}`}
+										maxLength={4}
+									/>
+								</div>
+							</div>
+						)}
+
+						{selectedPaymentMethod === 'Cash on Delivery' && (
+							<div className='mt-[30px] flex items-center gap-8'>
+								<img src={CoDLogo} />
+								<p className='text-black/50 text-[15px] font-medium leading-[25px]'>
+									The ‘Cash on Delivery’ option enables you to pay in cash when
+									our delivery courier arrives at your residence. Just make sure
+									your address is correct so that your order will not be
+									cancelled.
+								</p>
+							</div>
+						)}
 					</form>
 				</section>
 				<section className='rounded-[8px] p-8 bg-white xs:w-full xl:w-auto'>
