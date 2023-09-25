@@ -18,7 +18,7 @@ const Checkout = (props) => {
 						</p>
 					</div>
 				</div>
-				<div className='flex justify-between p-[15px] items-center'>
+				<div className='flex p-[15px] items-center'>
 					<p className='text-[15px] font-bold text-black/50'>
 						x{item.quantity}
 					</p>
@@ -36,8 +36,8 @@ const Checkout = (props) => {
 					</button>
 				</Link>
 			</div>
-			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] mt-[38px] pb-[140px] flex gap-8 items-start'>
-				<section className='bg-white p-12 rounded-[8px]'>
+			<div className='xs:px-[24px] md:px-[40px] lg:px-[165px] mt-[38px] pb-[140px] flex xs:flex-col xl:flex-row gap-8 xs:items-center xl:items-start'>
+				<section className='bg-white p-12 rounded-[8px] w-full'>
 					<h3>Checkout</h3>
 					<form>
 						<div className='mt-10'>
@@ -45,7 +45,7 @@ const Checkout = (props) => {
 								Billing Details
 							</p>
 							<div className='mt-4 flex flex-col gap-6'>
-								<div className='flex items-center gap-4'>
+								<div className='flex xs:flex-col md:flex-row items-center gap-4'>
 									<div className='flex flex-col w-full'>
 										<label className='text-black text-xs font-bold'>Name</label>
 										<input
@@ -92,7 +92,7 @@ const Checkout = (props) => {
 										placeholder='1137 Williams Avenue'
 									/>
 								</div>
-								<div className='flex items-center gap-4'>
+								<div className='flex xs:flex-col md:flex-row items-center gap-4'>
 									<div className='flex flex-col w-full'>
 										<label className='text-black text-xs font-bold'>
 											ZIP Code
@@ -128,7 +128,7 @@ const Checkout = (props) => {
 							<p className='text-cream text-[13px] font-bold uppercase leading-[25px] tracking-wide'>
 								Payment Details
 							</p>
-							<div className='flex mt-4 justify-between'>
+							<div className='flex xs:flex-col xs:gap-[17px] md:gap-0 md:flex-row mt-4 justify-between'>
 								<label className='text-black text-xs font-bold flex-1'>
 									Payment Methods
 								</label>
@@ -158,11 +158,11 @@ const Checkout = (props) => {
 						</div>
 					</form>
 				</section>
-				<section className='rounded-[8px] p-8 bg-white'>
+				<section className='rounded-[8px] p-8 bg-white xs:w-full xl:w-auto'>
 					<div>
 						<h6 className='h6 text-black'>Summary</h6>
 					</div>
-					<div className='flex flex-col items-center gap-6 py-8 overflow-y-auto max-h-[304px] w-[284px]'>
+					<div className='flex flex-col items-center gap-6 py-8 overflow-y-auto max-h-[304px] xs:w-full lg:w-[284px]'>
 						{cartItems}
 					</div>
 
