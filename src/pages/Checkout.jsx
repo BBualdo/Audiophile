@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import CoDLogo from '/assets/checkout/icon-cash-on-delivery.svg';
+import successLogo from '/assets/checkout/icon-order-confirmation.svg';
 
 const Checkout = (props) => {
+	const [success, setSuccess] = React.useState(false);
+
 	const [selectedPaymentMethod, setSelectedPaymentMethod] =
 		React.useState('e-Money');
 
@@ -436,7 +439,7 @@ const Checkout = (props) => {
 						)}
 
 						{selectedPaymentMethod === 'Cash on Delivery' && (
-							<div className='mt-[30px] flex items-center gap-8'>
+							<div className='mt-[30px] flex xs:flex-col md:flex-row items-center gap-8'>
 								<img src={CoDLogo} />
 								<p className='text-black/50 text-[15px] font-medium leading-[25px]'>
 									The ‘Cash on Delivery’ option enables you to pay in cash when
@@ -499,6 +502,29 @@ const Checkout = (props) => {
 					</div>
 				</section>
 			</div>
+			<section className='bg-white w-[540px] h-[581px] flex flex-col justify-center p-12'>
+				<div>
+					<img src={successLogo} />
+				</div>
+				<h3 className='mt-[33px]'>Thank you for your order</h3>
+				<p className='p text-black/50 mt-6'>
+					You will receive an email confirmation shortly.
+				</p>
+				<div className='flex items-center mt-[33px]'>
+					<div>{cartItems}</div>
+					<div className='bg-stone flex items-center justify-between mt-4'>
+						<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
+							Grand Total
+						</p>
+						<h6 className='font-bold leading-[25px] text-white'>
+							$ {Math.floor(props.totalPrice + 50 + props.totalPrice * 0.2)}
+						</h6>
+					</div>
+				</div>
+				<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-[46px]'>
+					Back to Home
+				</button>
+			</section>
 		</main>
 	);
 };

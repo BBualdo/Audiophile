@@ -35,7 +35,7 @@ const Navbar = (props) => {
 
 	return (
 		<>
-			<nav className='fixed top-0 left-0 right-0 xs:px-[24px] md:px-[40px] lg:px-[165px] bg-stone z-50'>
+			<nav className='absolute top-0 left-0 right-0 xs:px-[24px] md:px-[40px] lg:px-[165px] bg-stone z-50'>
 				<div className='flex justify-between items-center py-[35px]'>
 					<div className='flex items-center xs:justify-between md:justify-normal md:gap-[42px]'>
 						<img
@@ -99,12 +99,18 @@ const Navbar = (props) => {
 						</svg>
 					</div>
 				</div>
-				{showMenu && (
+			</nav>
+			{showMenu && (
+				<>
+					<div className='fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-[1]' />
 					<div className='absolute left-0 right-0 z-40'>
 						<Menu />
 					</div>
-				)}
-				{showCart && (
+				</>
+			)}
+			{showCart && (
+				<>
+					<div className='fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-[1]' />
 					<div className='md:w-[377px] absolute xs:left-6 xs:right-6 md:left-auto md:right-10 lg:right-40 top-[120px] z-30'>
 						<Cart
 							cart={props.cart}
@@ -115,8 +121,8 @@ const Navbar = (props) => {
 							removeFromCart={props.removeFromCart}
 						/>
 					</div>
-				)}
-			</nav>
+				</>
+			)}
 		</>
 	);
 };

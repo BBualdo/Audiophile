@@ -36,13 +36,13 @@ const Home = () => {
 				</div>
 			</header>
 
-			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] md:mt-[52px] lg:mt-[92px]'>
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] md:mt-[52px] lg:mt-[92px] z-[0]'>
 				<Menu />
 			</section>
 
-			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-full flex flex-col xs:gap-6 md:gap-8 lg:gap-12'>
-				<div className='bg-cream bg-circles bg-no-repeat xs:bg-bottom lg:bg-top flex xs:flex-col lg:flex-row items-center justify-evenly md:h-[720px] lg:h-[560px] xs:py-14 md:py-16 lg:py-0 lg:min-w-[730px] rounded-[8px]'>
-					<div className='h-full lg:overflow-hidden'>
+			<section className='xs:px-[24px] md:px-[40px] lg:px-[165px] h-full flex flex-col xs:gap-6 md:gap-8 lg:gap-12 '>
+				<div className='bg-cream bg-circles bg-no-repeat xs:bg-bottom lg:bg-top flex xs:flex-col lg:flex-row items-center justify-evenly md:h-[720px] lg:h-[560px] xs:py-14 md:py-16 lg:py-0 lg:min-w-[730px] rounded-[8px] z-[-1]'>
+					<div className='h-full lg:overflow-hidden '>
 						{/* desktop img */}
 						<img
 							src={desktopZX9}
@@ -62,7 +62,7 @@ const Home = () => {
 							alt='ZX9 Speaker'
 						/>
 					</div>
-					<div className='w-[350px] flex flex-col xs:items-center lg:items-start xs:px-6 md:px-0'>
+					<div className='w-[350px] flex flex-col xs:items-center lg:items-start xs:px-6 md:px-0 '>
 						<h1 className='xs:text-[36px] md:text-[56px] font-bold xs:leading-[40px] md:leading-[58px] xs:tracking-[1.3px] md:tracking-[2px] uppercase xs:mt-8 md:mt-16 lg:mt-0 text-white xs:text-center lg:text-left xs:px-14 md:px-0'>
 							ZX9 Speaker
 						</h1>
@@ -78,7 +78,7 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className='relative lg:min-w-[730px]'>
+				<div className='relative lg:min-w-[730px] z-[-1]'>
 					{/* desktop img */}
 					<img
 						src={desktopZX7}
