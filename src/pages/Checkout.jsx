@@ -513,10 +513,10 @@ const Checkout = (props) => {
 							You will receive an email confirmation shortly.
 						</p>
 						<div className='flex xs:flex-col md:flex-row items-center xs:mt-4 md:mt-[33px] w-full'>
-							<div className='bg-gray-light xs:rounded-t-lg  md:rounded-l-lg flex md:flex-1 flex-col gap-2 xs:max-h-[92px] md:max-h-[280px] w-full overflow-y-auto'>
+							<div className='bg-gray-light xs:rounded-tl-lg xs:rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg flex md:flex-1 flex-col gap-2 xs:max-h-[92px] md:max-h-[280px] w-full overflow-y-auto'>
 								{cartItems}
 							</div>
-							<div className='bg-stone xs:rounded-b-lg md:rounded-r-lg flex md:flex-1 gap-2 xs:h-[92px] md:h-full flex-col justify-center w-full'>
+							<div className='bg-stone xs:rounded-bl-lg md:rounded-bl-none md:rounded-tr-lg xs:rounded-br-lg flex md:flex-1 gap-2 xs:h-[92px] md:h-full flex-col justify-center w-full'>
 								<p className='text-[15px] font-[500] leading-[25px] text-white/50 uppercase ml-8'>
 									Grand Total
 								</p>

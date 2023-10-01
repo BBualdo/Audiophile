@@ -82,11 +82,13 @@ const Cart = (props) => {
 						<h6 className='h6 text-black'>$ {props.totalPrice}</h6>
 					</div>
 					<div>
-						<Link to='/checkout'>
-							<button className='btn w-full bg-cream text-white hover:bg-cream-light transition-all duration-150'>
-								Checkout
-							</button>
-						</Link>
+						{props.cart.length > 0 && (
+							<Link to='/checkout'>
+								<button className='btn w-full bg-cream text-white hover:bg-cream-light transition-all duration-150'>
+									Checkout
+								</button>
+							</Link>
+						)}
 					</div>
 				</div>
 			)}
