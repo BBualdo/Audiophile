@@ -113,11 +113,7 @@ const Checkout = (props) => {
 		);
 
 		if (!isFormInvalid) {
-			// Your logic for handling a successful form submission here
-			console.log('Form submitted successfully');
-		} else {
-			// Validation failed; do not proceed with submission
-			console.log('Form validation failed');
+			setSuccess(true);
 		}
 	};
 
@@ -502,29 +498,41 @@ const Checkout = (props) => {
 					</div>
 				</section>
 			</div>
-			<section className='bg-white w-[540px] h-[581px] flex flex-col justify-center p-12'>
-				<div>
-					<img src={successLogo} />
-				</div>
-				<h3 className='mt-[33px]'>Thank you for your order</h3>
-				<p className='p text-black/50 mt-6'>
-					You will receive an email confirmation shortly.
-				</p>
-				<div className='flex items-center mt-[33px]'>
-					<div>{cartItems}</div>
-					<div className='bg-stone flex items-center justify-between mt-4'>
-						<p className='text-[15px] font-[500] leading-[25px] text-black/50 uppercase'>
-							Grand Total
+			{/* Success message */}
+			{success && (
+				<>
+					<div className='fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-[50]' />
+					<section className='fixed xs:left-4 xs:right-4 md:left-[20%] lg:left-[35%] xs:top-32 md:top-[222px] bg-white xs:w-auto md:w-[540px] h-[581px] flex flex-col justify-center xs:p-8 md:p-12 z-50 rounded-lg'>
+						<div>
+							<img src={successLogo} />
+						</div>
+						<h3 className='xs:mt-[23px] md:mt-[33px]'>
+							Thank you for your order
+						</h3>
+						<p className='p text-black/50 xs:mt-4 md:mt-6'>
+							You will receive an email confirmation shortly.
 						</p>
-						<h6 className='font-bold leading-[25px] text-white'>
-							$ {Math.floor(props.totalPrice + 50 + props.totalPrice * 0.2)}
-						</h6>
-					</div>
-				</div>
-				<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-[46px]'>
-					Back to Home
-				</button>
-			</section>
+						<div className='flex xs:flex-col md:flex-row items-center xs:mt-4 md:mt-[33px] w-full'>
+							<div className='bg-gray-light xs:rounded-t-lg  md:rounded-l-lg flex md:flex-1 flex-col gap-2 xs:max-h-[92px] md:max-h-[280px] w-full overflow-y-auto'>
+								{cartItems}
+							</div>
+							<div className='bg-stone xs:rounded-b-lg md:rounded-r-lg flex md:flex-1 gap-2 xs:h-[92px] md:h-full flex-col justify-center w-full'>
+								<p className='text-[15px] font-[500] leading-[25px] text-white/50 uppercase ml-8'>
+									Grand Total
+								</p>
+								<h6 className='font-bold leading-[25px] ml-8 text-white'>
+									$ {Math.floor(props.totalPrice + 50 + props.totalPrice * 0.2)}
+								</h6>
+							</div>
+						</div>
+						<Link to='/' className='w-full'>
+							<button className='btn bg-cream hover:bg-cream-light transition-all duration-150 mt-[46px] w-full'>
+								Back to Home
+							</button>
+						</Link>
+					</section>
+				</>
+			)}
 		</main>
 	);
 };
